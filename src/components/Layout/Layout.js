@@ -6,15 +6,15 @@ import {
   withRouter,
 } from "react-router-dom";
 import classnames from "classnames";
-import {Box, IconButton, Link} from '@material-ui/core'
-import Icon from '@mdi/react'
+// import {Box, IconButton, Link} from '@material-ui/core'
+// import Icon from '@mdi/react'
 
-//icons
-import {
-  mdiFacebook as FacebookIcon,
-  mdiTwitter as TwitterIcon,
-  mdiGithub as GithubIcon,
-} from '@mdi/js'
+// //icons
+// import {
+//   mdiFacebook as FacebookIcon,
+//   mdiTwitter as TwitterIcon,
+//   mdiGithub as GithubIcon,
+// } from '@mdi/js'
 
 // styles
 import useStyles from "./styles";
@@ -32,8 +32,23 @@ import Tables from "../../pages/tables";
 import Icons from "../../pages/icons";
 import Charts from "../../pages/charts";
 
+
 // context
 import { useLayoutState } from "../../context/LayoutContext";
+import CourseCategory from "../../pages/courseCategory/CourseCategory";
+import Courses from "../../pages/courses/Courses";
+import AddOrEditCourse from "../../pages/AddCourse/AddOrEditCourse";
+import CourseContent from "../../pages/courseContent/CourseContent";
+import ManageClassAndSubject from "../../pages/classAndSubjects/ManageClassAndSubject";
+import Quizzes from "../../pages/quizzes/Quizzes";
+import QuizQuestions from "../../pages/quizQuestions/QuizQuestions";
+import FreeVideos from "../../pages/freeVideos/FreeVideos";
+import ManageEbooks from "../../pages/manageEbooks/ManageEbooks";
+import AppSlider from "../../pages/AppSlider/AppSlider";
+import PushNotification from "../../pages/pushNotification/PushNotification";
+import Users from "../../pages/users/Users";
+import AllOrders from "../../pages/orders/AllOrders";
+
 
 function Layout(props) {
   var classes = useStyles();
@@ -57,6 +72,24 @@ function Layout(props) {
               <Route path="/app/typography" component={Typography} />
               <Route path="/app/tables" component={Tables} />
               <Route path="/app/notifications" component={Notifications} />
+
+            
+              <Route path="/app/courseCategory" component={CourseCategory}/>
+              <Route path="/app/courses" component={Courses}/>
+              <Route path="/app/newCourse" component={AddOrEditCourse}/>
+              <Route path="/app/courseContent" component={CourseContent}/>
+              <Route path="/app/manageClassAndSubject" component={ManageClassAndSubject}/>
+              <Route path="/app/quizzes" component={Quizzes}/>
+              <Route path="/app/questions/:qid/:title" component={QuizQuestions}/>
+              <Route path="/app/freeVideos" component={FreeVideos}/>
+              <Route path="/app/manageEbooks" component={ManageEbooks}/>
+              <Route path="/app/appSlider" component={AppSlider}/>
+              <Route path="/app/pushNotification" component={PushNotification}/>
+              <Route path="/app/users" component={Users}/>
+              <Route path="/app/orders" component={AllOrders}/>
+
+
+            
               <Route
                 exact
                 path="/app/ui"
@@ -66,81 +99,7 @@ function Layout(props) {
               <Route path="/app/ui/icons" component={Icons} />
               <Route path="/app/ui/charts" component={Charts} />
             </Switch>
-            <Box
-              mt={5}
-              width={"100%"}
-              display={"flex"}
-              alignItems={"center"}
-              justifyContent="space-between"
-            >
-              <div>
-                <Link
-                  color={'primary'}
-                  href={'https://flatlogic.com/'}
-                  target={'_blank'}
-                  className={classes.link}
-                >
-                  Flatlogic
-                </Link>
-                <Link
-                  color={'primary'}
-                  href={'https://flatlogic.com/about'}
-                  target={'_blank'}
-                  className={classes.link}
-                >
-                  About Us
-                </Link>
-                <Link
-                  color={'primary'}
-                  href={'https://flatlogic.com/blog'}
-                  target={'_blank'}
-                  className={classes.link}
-                >
-                  Blog
-                </Link>
-              </div>
-              <div>
-                <Link
-                  href={'https://www.facebook.com/flatlogic'}
-                  target={'_blank'}
-                >
-                  <IconButton aria-label="facebook">
-                    <Icon
-                      path={FacebookIcon}
-                      size={1}
-                      color="#6E6E6E99"
-                    />
-                  </IconButton>
-                </Link>
-                <Link
-                  href={'https://twitter.com/flatlogic'}
-                  target={'_blank'}
-                >
-                  <IconButton aria-label="twitter">
-                    <Icon
-                      path={TwitterIcon}
-                      size={1}
-                      color="#6E6E6E99"
-                    />
-                  </IconButton>
-                </Link>
-                <Link
-                  href={'https://github.com/flatlogic'}
-                  target={'_blank'}
-                >
-                  <IconButton
-                    aria-label="github"
-                    style={{marginRight: -12}}
-                  >
-                    <Icon
-                      path={GithubIcon}
-                      size={1}
-                      color="#6E6E6E99"
-                    />
-                  </IconButton>
-                </Link>
-              </div>
-            </Box>
+          
           </div>
         </>
     </div>

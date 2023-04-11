@@ -1,85 +1,96 @@
-import React, { useState, useEffect } from "react";
 import { Drawer, IconButton, List } from "@material-ui/core";
 import {
-  Home as HomeIcon,
-  NotificationsNone as NotificationsIcon,
-  FormatSize as TypographyIcon,
-  FilterNone as UIElementsIcon,
-  BorderAll as TableIcon,
-  QuestionAnswer as SupportIcon,
-  LibraryBooks as LibraryIcon,
-  HelpOutline as FAQIcon,
-  ArrowBack as ArrowBackIcon,
+  ArrowBack as ArrowBackIcon, BookmarkBorder, FilterNone as UIElementsIcon, FormatSize as TypographyIcon, HelpOutline as FAQIcon, Home as HomeIcon, Image, LaptopChromebook, LibraryBooks as LibraryIcon, LibraryBooksTwoTone, Notifications, NotificationsNone as NotificationsIcon, OndemandVideoOutlined, QuestionAnswer as SupportIcon, School, VerifiedUser
 } from "@material-ui/icons";
+
 import { useTheme } from "@material-ui/styles";
-import { withRouter } from "react-router-dom";
 import classNames from "classnames";
+import React, { useEffect, useState } from "react";
+import { withRouter } from "react-router-dom";
 
 // styles
 import useStyles from "./styles";
 
 // components
-import SidebarLink from "./components/SidebarLink/SidebarLink";
 import Dot from "./components/Dot";
+import SidebarLink from "./components/SidebarLink/SidebarLink";
 
 // context
 import {
-  useLayoutState,
-  useLayoutDispatch,
-  toggleSidebar,
+  toggleSidebar, useLayoutDispatch, useLayoutState
 } from "../../context/LayoutContext";
+import { Person, PictureAsPdf, QuizOutlined, Sell } from "@mui/icons-material";
 
 const structure = [
   { id: 0, label: "Dashboard", link: "/app/dashboard", icon: <HomeIcon /> },
+
+  { id: 1, type: "divider" },
+  { id: 2, type: "title", label: "MANAGE" },
   {
-    id: 1,
-    label: "Typography",
-    link: "/app/typography",
-    icon: <TypographyIcon />,
-  },
-  { id: 2, label: "Tables", link: "/app/tables", icon: <TableIcon /> },
-  {
-    id: 3,
-    label: "Notifications",
-    link: "/app/notifications",
-    icon: <NotificationsIcon />,
+    id:3,
+    label:"Image Slider",
+    link:"/app/appSlider",
+    icon:<Image/>
   },
   {
-    id: 4,
-    label: "UI Elements",
-    link: "/app/ui",
-    icon: <UIElementsIcon />,
-    children: [
-      { label: "Icons", link: "/app/ui/icons" },
-      { label: "Charts", link: "/app/ui/charts" },
-      { label: "Maps", link: "/app/ui/maps" },
-    ],
+    id:17,
+    label:"Class & Subjects",
+    link:"/app/manageClassAndSubject",
+    icon:<School/>
   },
+  {
+    id:4,
+    label:"Quizzes",
+    link:"/app/quizzes",
+    icon:<QuizOutlined/>
+  },
+
+
   { id: 5, type: "divider" },
-  { id: 6, type: "title", label: "HELP" },
-  { id: 7, label: "Library", link: "https://flatlogic.com/templates", icon: <LibraryIcon /> },
-  { id: 8, label: "Support", link: "https://flatlogic.com/forum", icon: <SupportIcon /> },
-  { id: 9, label: "FAQ", link: "https://flatlogic.com/forum", icon: <FAQIcon /> },
-  { id: 10, type: "divider" },
-  { id: 11, type: "title", label: "PROJECTS" },
+  { id: 6, type: "title", label: "COURSE" },
   {
-    id: 12,
-    label: "My recent",
-    link: "",
-    icon: <Dot size="small" color="warning" />,
+    id:7,
+    label:"Course Category",
+    link:"/app/courseCategory",
+    icon:<BookmarkBorder/>
   },
   {
-    id: 13,
-    label: "Starred",
-    link: "",
-    icon: <Dot size="small" color="primary" />,
+    id:8,
+    label:"Courses",
+    link:"/app/courses",
+    icon:<LaptopChromebook/>
   },
+  { id: 9, type: "divider" },
+  { id: 10, type: "title", label: "EBOOK/NOTES" },
   {
-    id: 14,
-    label: "Background",
-    link: "",
-    icon: <Dot size="small" color="secondary" />,
+    id:11,
+    label:"Ebooks/PDFs",
+    link:"/app/manageEbooks",
+    icon:<PictureAsPdf/>
   },
+  { id: 12, type: "divider" },
+  { id: 13, type: "title", label: "FREE CONTENT" },
+  {
+    id:14,
+    label:"Free Videos",
+    link:"/app/freeVideos",
+    icon:<OndemandVideoOutlined/>
+  },
+
+  { id: 15, type: "title", label: "USERS" },
+  {
+    id:16,
+    label:"Users",
+    link:"/app/users",
+    icon:<Person/>
+  },
+  { id: 15, type: "title", label: "ORDERS" },
+  {
+    id:16,
+    label:"Orders",
+    link:"/app/orders",
+    icon:<Sell/>
+  }
 ];
 
 function Sidebar({ location }) {

@@ -1,0 +1,7 @@
+{
+    "name": "PushNotification",
+    "version": "0.0.0",
+    "main": "PushNotification.js",
+    "private": true
+  }
+  
